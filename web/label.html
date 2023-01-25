@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+        <title>Prima Wrap Product Label Printing v3 &copy 2022</title>
+        <link rel="stylesheet" href="libs/jquery/jquery-ui.min.css">
+        <link rel="stylesheet" href="libs/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="libs/animate/animate.min.css">
+        <link rel="stylesheet" href="css/label.css">
+        <link rel="stylesheet" href="libs/clock/css/clock.css">
+        <link rel="stylesheet" href="libs/intro/introjs.min.css">
+        <script type="text/javascript" src="libs/jquery/jquery-3.6.1.min.js"></script>
+        <script type="text/javascript" src="libs/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="libs/sweetalert/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="/eel.js"></script>
+        <script type="text/javascript" src="libs/intro/intro.min.js"></script>
+        <script type="text/javascript" src="js/label.js" defer></script>
+        <script type="text/javascript" src="libs/clock/js/clock.js" defer></script>
+        
+    </head>
+
+    <body>
+
+        <!-- Entire Page Container -->
+        <div class="container text-center col-12">
+
+            <!-- Page Title -->
+            <div class="jumbotron border shadow-sm mt-2 p-1 bg-light">
+                
+                <div class="row">
+                    <div class="col-12">
+                        <img class="text-center" src="img/pw.png" alt="PW" width="450" >
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h1 class="mt-1">
+                        Product Label Printing <span class="text-primary font-weight-bold" style="font-size: 1rem; ">(v3)<span>
+                    </h1>
+                </div>
+                
+                <hr>
+
+                <!-- Digital Clock HTML -->
+                <div class="container mt-n3 mb-n2" id="clockdate">
+                    <div class="row clockdate-wrapper">
+                        <div class="col" id="clock"></div>
+                        <div class="col" id="date"></div>
+                    </div>
+                </div>
+                <!-- End Digital Clock HTML -->
+            </div>
+            
+            
+                
+            <!-- This div encapsulates all the content of the app to be manipulated as the app loads initially -->
+            <div id="content">
+
+                <!-- Main app content -->
+                <div id="main" style="display: none;">
+                    
+                    <div id="main-top">
+                        <!-- Printer Selector -->
+                        <div class="input-group w-75 mt-n2 mb-4 ml-4">
+
+                            <div class="input-group-prepend float-left">
+                                <span class="input-group-text">
+                                    <small class="text-muted">Select a Printer:</small>
+                                </span>
+                            </div>
+                            <select id="printer" class="form-control form-select inset" data-hint="Select a printer from the list to continue" data-hint-position="middle-middle">
+                                <!-- List of printers will be inserted here -->
+                            </select>
+                            
+                            <!-- Expert Mode -->
+                            <div class="custom-control custom-switch ml-3 mt-2" id="intro-expert">
+                                <input type="checkbox" class="custom-control-input" id="expert" name="expert" disabled>
+                                <label class="custom-control-label" for="expert" name="expert" value="1"><span id="mode">Basic</span> Mode</label>
+                            </div>
+
+                            <!-- Select barcode type -->
+                            <div class="custom-control custom-switch ml-3 mt-2" id="intro-barcode">
+                                <input type="checkbox" class="custom-control-input" id="barcode" name="barcode" disabled>
+                                <label class="custom-control-label" for="barcode" name="barcode" value="1"><span id="label-type">Code128</span></label>
+                            </div>
+
+                            <!-- Custom ZPL -->
+                            <button id="custom-zpl" type="button" class="btn btn-default position-absolute custom-zpl" disabled>
+                                <span class="fa fa-solid fa-barcode fa-2xl"></span>
+                            </button>
+                            
+                            <!-- Settings -->
+                            <button id="settings" type="button" class="btn btn-default position-absolute" data-toggle="modal" data-target="#settingsModal" disabled>
+                                <span class="fa fa-solid fa-cog fa-2xl"></span>
+                            </button>
+                            
+                            <!-- Settings Modal -->
+                            <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Settings</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div id="accordion">
+
+                                            <div class="card">
+                                              <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Calibrate Media
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                          
+                                              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  The Calibrate command is used to force a label length measurement and adjust the media and ribbon sensor values.
+                                                </div>
+                                                <button id="calibrate-media" type="button" class="btn btn-primary mb-4">Calibrate Media</button>
+                                              </div>
+                                            </div>
+
+                                            <div class="card">
+                                              <div class="card-header" id="headingTwo">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Print Configuration Label
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  The Print Configuarion Label command is used to generate a printer configuration label. The printer configuration label contains information about the printer setup, such as sensor type, network ID, ZPL mode, firmware version and descriptive data in printer memory.
+                                                </div>
+                                                <button id="print-configuration-label" type="button" class="btn btn-primary mb-4">Print Configuration Label</button>
+                                              </div>
+                                            </div>
+
+                                            <div class="card">
+                                              <div class="card-header" id="headingThree">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Feed One Label
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  The Feed One Label command cause the printer to feed one blank label.
+                                                </div>
+                                                <button id="feed-one-label" type="button" class="btn btn-primary mb-4">Feed One Label</button>
+                                              </div>
+                                            </div>
+
+                                            <div class="card">
+                                              <div class="card-header" id="headingFour">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                    Load Factory Defaults
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  The Default Printer command is used to reload factory settings in the printer. WARNING: Any custom settings in the printer will be lost.
+                                                </div>
+                                                <button id="load-factory-defaults" type="button" class="btn btn-danger mb-4">Load Factory Defaults</button>
+                                              </div>
+                                            </div>
+
+                                            <div class="card">
+                                              <div class="card-header" id="headingFive">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                                    Reset Printer
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  The Reset Printer command resets all of the printer's internal software, performs a ppower-on-self-test(POST), clear the buffer and DRAM, and resets the communication parameters and default values.
+                                                </div>
+                                                <button id="reset-printer" type="button" class="btn btn-danger mb-4">Reset Printer</button>
+                                              </div>
+                                            </div>
+
+                                            <div class="card">
+                                              <div class="card-header" id="headingSix">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                                    Configure Printer
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  The Configure Printer command send the appropiate printer configuration via raw ZPLII. WARNING: The current configuration is custom tailored towards printer model GX430t with a label size of 2x1.25 inches
+                                                </div>
+                                                <button id="configure-printer" type="button" class="btn btn-success mb-4">Configure Printer</button>
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                          
+
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- Help -->
+                            <button id="help" type="button" class="btn btn-default position-absolute">
+                                <span class="fa fa-solid fa-question fa-2xl"></span>
+                            </button>
+                        
+                        </div>
+                    </div>
+                    
+                    <hr class="mt-n1">
+
+                    <div id="main-bottom">
+                        <!-- Part Number -->
+                        <div class="row">
+                            <div class="mx-auto">
+                                <h4 style="display: inline;"><b>Enter Item Part Number:</b></h4>
+                            </div>
+                            <div class="input-group mb-3 w-50 mt-n1 mx-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <small class="text-muted">Ex.:CLEAR</small>
+                                    </span>
+                                </div>
+                                <input class="form-control inset" id="part" placeholder="410CLEAR" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Item Part Number...'" type="text" name="part" disabled>
+                                <div class="input-group-append">
+                                    <button id="part-search" class="btn btn-primary" type="button" disabled>&laquo; Search &raquo;</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mt-n1">     
+
+                        <!-- Description -->
+                        <div class="row">
+                            <div class="mx-auto mt-3">
+                                <h4 style="display: inline;"><b>Enter Item Description: &nbsp;</b></h4>
+                            </div>
+                            <div class="input-group mb-3 w-50 mt-n1 mx-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <small class="text-muted">Ex.:BAGS&nbsp;&nbsp;</small>
+                                    </span>
+                                </div>
+                                <textarea class="form-control inset fixed-size" id="description" placeholder="BAGS" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BAGS'" type="text" name="description" disabled></textarea>
+                            </div>
+                        </div>
+
+                        <hr class="mt-n1">
+
+                        <!-- Retail -->
+                        <div class="row">
+                            <div class="mx-auto">
+                                <h4 style="display: inline;"><b>Enter Item Retail Price:&nbsp;&nbsp;</b></h4>
+                            </div>
+                            <div class="input-group mb-3 w-50 mt-n1 mx-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <small class="text-muted">Ex.:1.99&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                                    </span>
+                                </div>
+                                <input class="form-control inset" id="retail" placeholder="1.99" onfocus="this.placeholder = ''" onblur="this.placeholder = '1.99'" type="number" name="retail" disabled>
+                            </div>
+                        </div>
+
+                        <hr class="mt-n1">
+
+                        <!-- Wholesale -->
+                        <div class="row">
+                            <div class="mx-auto">
+                                <h4 style="display: inline;"><b>Enter Wholesale Price:&nbsp;&nbsp;</b></h4>
+                            </div>
+                            <div class="input-group mb-3 w-50 mt-n1 mx-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <small class="text-muted">Ex.:1.99&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                                    </span>
+                                </div>
+                                <input class="form-control inset" id="wholesale" placeholder="1.99" onfocus="this.placeholder = ''" onblur="this.placeholder = '1.99'" type="number" name="wholesale" disabled>
+                            </div>
+                        </div>
+
+                    </div>    
+
+                </div>
+
+                <!-- Custom ZPL Text Area -->
+                <div id="zpl-area" class="row" style="display: none;">
+                    <div class="mx-auto">
+                        <h4 style="display: inline;"><b>Select image or ZPLII:&nbsp;&nbsp;&nbsp;</b></h4>
+                    </div>
+
+                    <div class="row position-absolute mt-4 pt-2 ml-4 w-50">
+                        <div class="col col-md-auto p-1 ml-1 mr-3 mb-2 hover-zoom border rounded"><img id="fragile" src="img/fragile.png" alt="Fragile" width="96" height="60"></div>
+                        <div class="col col-md-auto p-1 ml-1 mr-3 mb-2 hover-zoom border rounded"><img id="defective" src="img/defective.png" alt="Defective" width="96" height="60"></div>
+                        <div class="col col-md-auto p-1 ml-1 mb-2 hover-zoom border rounded"><img id="qc" src="img/qc.png" alt="Quality Control" width="96" height="60"></div>
+                        <div class="w-100"></div>
+                        <div class="col col-md-auto p-1 ml-1 mr-3 mb-2 hover-zoom border rounded"><img id="top-seller" src="img/top.png" alt="Top Seller" width="96" height="60"></div>
+                        <div class="col col-md-auto p-1 ml-1 mr-3 mb-2 hover-zoom border rounded"><img id="hot-sale" src="img/sale.png" alt="Hot Sale" width="96" height="60"></div>
+                        <div class="col col-md-auto p-1 ml-1 mb-2 hover-zoom border rounded"><img id="bulk" src="img/bulk.png" alt="Bulk" width="96" height="60"></div>
+                        <div class="w-100"></div>
+                        <div class="col w-75 col-md-auto p-1 mt-3">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <label class="custom-file-label" for="image-label">Choose Label File</label>
+                                    <input type="file" class="custom-file-input" id="image-label" accept="image/png, image/jpeg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3 w-50 mt-n1 mx-auto">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <small class="text-muted">Ex.:ZPL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                            </span>
+                        </div>
+                        <textarea class="form-control inset zpl-area" id="manual-zpl" placeholder="Enter manual ZPLII code here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter manual ZPLII code here'" type="text" name="manual-zpl"></textarea>
+                    </div>
+                </div>
+                
+                <hr class="mt-n1" style="display: none;">
+
+                <!-- Label QTY -->
+                <div id="quantity-container" class="row" style="display: none;">
+                    <div class="mx-auto">
+                        <h4 style="display: inline;"><b>Enter Label Quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></h4>
+                    </div>
+                    <div class="input-group mb-3 w-50 mt-n1 mx-auto">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <small class="text-muted">Ex.:10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                            </span>
+                        </div>
+                        <input class="form-control inset" id="quantity" placeholder="1" onfocus="this.placeholder = ''" onblur="this.placeholder = '1'" type="number" name="quantity" min="1" max="100" disabled>
+                    </div>
+                </div>
+
+                <hr class="mt-n1" style="display: none;">
+
+                <!-- Print button -->
+                <button style="display: none;" id="print" type="button" name="print" value="submit" class="btn btn-primary btn-lg shadow-sm-custom w-75" style="scale:1.3" disabled><span class="lead font-size:bigger">&laquo; Print Label &raquo;</span></button>
+
+                <!-- Loading Spinner -->
+                <div id="spinner">
+                    <div class="spinner-border mt-5" style="width: 10rem; height: 10rem;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div><br><br>
+                    <span id="message" class="display-4">Loading...</span>
+                </div>
+
+                
+            <!-- End of content -->
+            </div>
+
+
+            <!-- Footer -->
+            <footer class="footer fixed-bottom bg-dark">
+                <div class="container my-2">
+                  <span class="text-white lead">
+                      <a target=_blank href="http://primawrap.com">Product Label Printing v3</a> | &copy 2022 <a target=_blank href="http://primawrap.com"><b>Prima Wrap</b></a>
+                    </span>
+                </div>
+            </footer>
+
+        <!-- End of Entire Page Container -->
+        </div>
+
+        
+
+    </body>
+</html>

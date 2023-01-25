@@ -1,0 +1,61 @@
+  24.0                DARKNESS          
+  4 IPS               PRINT SPEED       
+  +000                TEAR OFF          
+  TEAR OFF            PRINT MODE        
+  GAP/NOTCH           MEDIA TYPE        
+  WEB                 SENSOR TYPE       
+  MANUAL              SENSOR SELECT     
+  DIRECT-THERMAL      PRINT METHOD      
+  608                 PRINT WIDTH       
+  0390                LABEL LENGTH      
+  39.0IN   975MM      MAXIMUM LENGTH    
+  CONNECTED           USB COMM.         
+  BIDIRECTIONAL       PARALLEL COMM.    
+  9600                BAUD              
+  8 BITS              DATA BITS         
+  NONE                PARITY            
+  DTR & XON/XOFF      HOST HANDSHAKE    
+  NONE                PROTOCOL          
+  AUTO                SER COMM. MODE    
+  <~>  7EH            CONTROL CHAR      
+  <^>  5EH            COMMAND CHAR      
+  <,>  2CH            DELIM. CHAR       
+  ZPL II              ZPL MODE          
+  NO MOTION           MEDIA POWER UP    
+  FEED                HEAD CLOSE        
+  AFTER               BACKFEED          
+  +000                LABEL TOP         
+  +0045               LEFT POSITION     
+  NO                  HEXDUMP           
+  043                 WEB S.            
+  096                 MEDIA S.          
+  008                 WEB GAIN          
+  050                 MARK S.           
+  013                 MARK GAIN         
+  095                 MARK MED S.       
+  010                 MARK MEDIA GAIN   
+  095                 CONT MEDIA S.     
+  007                 CONT MEDIA GAIN   
+  075                 RIBBON OUT        
+  040                 RIBBON GAIN       
+  000                 TAKE LABEL        
+  CWF                 MODES ENABLED     
+  ...                 MODES DISABLED    
+  1280 12/MM FULL     RESOLUTION        
+  V56.17.17Z <-       FIRMWARE          
+  1.3                 XML SCHEMA        
+  V30.00.0207         HARDWARE ID       
+  CUSTOMIZED          CONFIGURATION     
+  2104k............R: RAM               
+  1536k............E: ONBOARD FLASH     
+  NONE                FORMAT CONVERT    
+  DISABLED            ZBI               
+  2.1                 ZBI VERSION       
+  1,528 IN            LAST CLEANED      
+  1,528 IN            HEAD USAGE        
+  1,529 IN            TOTAL USAGE       
+  1,528 IN            RESET CNTR1       
+  1,528 IN            RESET CNTR2       
+  32J204600352        SERIAL NUMBER     
+  MAINT. OFF          EARLY WARNING     
+

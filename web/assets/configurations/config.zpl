@@ -1,0 +1,17 @@
+~SD24
+~TA000
+~JSA
+^XA
+^SZ2
+^MNW
+^PW608
+^LL390
+^PON
+^PR4,4
+^PMN
+^LS0
+^MTD
+^MMT,N
+^MPE
+^XZ
+^XA^JUS^XZ
