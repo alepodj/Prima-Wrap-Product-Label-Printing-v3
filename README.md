@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/alepodj/Prima-Wrap-Product-Label-Printing-v3">
-    <img src="web/img/logo.png" alt="Logo" width="80" height="80">
+    <img src="web/img/logo.png" alt="Logo">
   </a>
 </div>
 
