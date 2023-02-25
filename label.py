@@ -54,7 +54,7 @@ def send_label(zpl, printer, quantity):
 #Get all data out of database excel and send to front end
 @eel.expose
 def get_database():
-    database = glob.glob('**/*.xlsm', recursive=True)
+    database = glob.glob('**/*.xlsx', recursive=True)
 
     if database:
         if len(database) > 1:
