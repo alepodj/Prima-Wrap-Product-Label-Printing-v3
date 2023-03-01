@@ -7,7 +7,6 @@
     <img src="web/img/logo.png" alt="Logo">
   </a>
 </div>
-<hr>
 
 
 
@@ -18,7 +17,6 @@ This Project was created for a company called Prima Wrap which in their own word
 
 "Prima Wrap is your one-stop custom gift packaging for branding corporate and wedding, including bags, boxes, cello, ribbons, eco go green products, bows and gift wrap."
 
-<hr>
 <div align="center">
   <a href="https://github.com/alepodj/Prima-Wrap-Product-Label-Printing-v3">
     <img src="web/img/demo1.png" alt="Demo1">
@@ -30,10 +28,10 @@ This Project was created for a company called Prima Wrap which in their own word
 
 ## Built With
 
-* [![Javascript][Javascript.com]][Javascript-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Python][Python.com]][Python-url]
+* [Javascript](Javascript.com)
+* [JQuery](JQuery.com)
+* [Bootstrap](Bootstrap.com)
+* [Python](Python.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -52,7 +50,6 @@ The requirements.txt file contains a list of all the project depencies needed to
 ### Other notes
 
 This project makes use of the EEL python library: [https://github.com/python-eel/Eel](https://github.com/python-eel/Eel)
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,7 +58,7 @@ This project makes use of the EEL python library: [https://github.com/python-eel
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU License. See `LICENSE.md` for more information.
+Distributed under the GNU General Public License v3.0. See `LICENSE.md` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -70,35 +67,7 @@ Distributed under the GNU License. See `LICENSE.md` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Alejandro Suarez (alejandrosuarez87@gmail.com)
+Alejandro Suarez (alejandrosuarez87@gmail.com)<br>
 Project Link: [https://github.com/alepodj/Prima-Wrap-Product-Label-Printing-v3](https://github.com/alepodj/Prima-Wrap-Product-Label-Printing-v3)
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
-[Javascript.com]: https://img.shields.io/badge/Javascript-0769AD?style=for-the-badge&logo=javascript&logoColor=yellow
-[Javascript-url]: https://javaScript.com
-[Python.com]: https://img.shields.io/badge/Python-0769AD?style=for-the-badge&logo=python&logoColor=white
-[Python-url]: https://www.python.org/
