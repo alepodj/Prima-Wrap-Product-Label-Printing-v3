@@ -22,9 +22,6 @@ This Project was created for a company called Prima Wrap which in their own word
     <img src="web/img/demo1.png" alt="Demo1">
   </a>
 </div>
-<hr>
-
-
 
 ## Built With
 
