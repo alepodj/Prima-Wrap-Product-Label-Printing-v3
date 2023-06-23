@@ -43,7 +43,7 @@ The requirements.txt file contains a list of all the project depencies needed to
 
 ## Other notes
 
-This project makes use of the EEL python library: * [EEL](https://github.com/python-eel/Eel)
+This project makes use of the EEL python library which facilites a simple method to build small windows application with browser technologies: [EEL](https://github.com/python-eel/Eel)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
