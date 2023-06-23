@@ -13,9 +13,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This Project was created for a company called Prima Wrap which in their own words:
+This Project was created for a company called Prima Wrap, which facilitates their local and custom inventory system, and in their own words:
 
 "Prima Wrap is your one-stop custom gift packaging for branding corporate and wedding, including bags, boxes, cello, ribbons, eco go green products, bows and gift wrap."
+
+* [PrimaWrap](http://primawrap.com/)
 
 <div align="center">
   <a href="https://github.com/alepodj/Prima-Wrap-Product-Label-Printing-v3">
@@ -35,13 +37,13 @@ This Project was created for a company called Prima Wrap which in their own word
 
 
 <!-- GETTING STARTED -->
-### Prerequisites
+## Prerequisites
 
 The requirements.txt file contains a list of all the project depencies needed to run the software
 
-### Other notes
+## Other notes
 
-This project makes use of the EEL python library: [https://github.com/python-eel/Eel](https://github.com/python-eel/Eel)
+This project makes use of the EEL python library: * [EEL](https://github.com/python-eel/Eel)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
